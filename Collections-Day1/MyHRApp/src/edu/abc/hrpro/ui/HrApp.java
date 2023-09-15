@@ -21,8 +21,12 @@ public class HrApp {
 		while (true) {
 			System.out.println(" ----- OPERATIONS ----");// <a>
 			System.out.println("1. Add Employee ");
-			System.out.println("2. Search Employee By ID ");
-			System.out.println("3. Display All Employee ");
+			System.out.println("2. Display All Employee ");
+			System.out.println("3. Search Employee By ID ");
+			System.out.println("4. Search Employee By Department ");
+			System.out.println("5. Search Employee By Salary Range ");
+
+			
 			System.out.println("0. Exit");
 			System.out.println("Enter Option :- ");
 
@@ -31,11 +35,19 @@ public class HrApp {
 				app.fillEmployeeForm();
 				break;
 			case 2:
-				app.getEmployeeBasedOnId();
-				break;
-			case 3:
 				app.getAllEmployees();
 				break;
+			
+			case 3:
+				app.getEmployeeBasedOnId();
+				break;
+			case 4:
+				app.getEmployeeBasedOnDepartment();
+				break;
+			case 5:
+				app.getEmployeeBasedOnSalaryRange();
+				break;
+			
 			case 0:
 				System.exit(0);
 			}// end switch
@@ -44,6 +56,33 @@ public class HrApp {
 
 	}// end main
 
+	private void getEmployeeBasedOnSalaryRange() {
+		
+		System.out.println("Enter Salary R1 : - ");
+		int salary1 = Integer.parseInt(sc.nextLine());
+		
+		System.out.println("Enter Salary R2 : - ");
+		int salary2 = Integer.parseInt(sc.nextLine());
+		
+		
+		List<Employee> allDataFromDb = server.getEmployeeBySalaryRange(salary1, salary2);
+		for (Employee employee : allDataFromDb) {
+			displayEmployee(employee);
+		}
+	}
+	
+	private void getEmployeeBasedOnDepartment() {
+		System.out.println("Enter Department Name to Be Searched : - ");
+		String searchDepartment = sc.nextLine();
+		
+		List<Employee> allDataFromDb = server.getEmployeeByDepartment(searchDepartment);
+		for (Employee employee : allDataFromDb) {
+			displayEmployee(employee);
+		}
+	}
+	
+	
+	
 	public void fillEmployeeForm() {
 		System.out.println("Enter Employee Name : - ");
 		String name = sc.nextLine();
@@ -71,6 +110,15 @@ public class HrApp {
 
 	public void getEmployeeBasedOnId() {
 
+		System.out.println("Enter Id to be Searched  : - ");
+		int searchid = Integer.parseInt(sc.nextLine());
+		
+		Employee e = server.getEmployeeById(searchid);
+		
+		if(e != null)	displayEmployee(e);
+		else System.out.println(" Employee Not Found For ID : "+searchid);
+		
+		
 	}
 	public void getAllEmployees()
 	{

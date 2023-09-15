@@ -17,8 +17,47 @@ public class EmployeeDB {
 		
 	}
 	
+	public List<Employee> getEmployeeByDepartment(String searchDepartment)
+	{
+		List<Employee> tempList = new ArrayList<>();
+		for (Employee employee : allEmployees) {
+			if(employee.getDepartment().equals(searchDepartment))
+			{
+				tempList.add(employee);
+			}
+		}
+		
+		return tempList;
+	}
+	
+	
+	public List<Employee> getEmployeeBySalaryRange(int r1,int r2)
+	{
+		List<Employee> tempList = new ArrayList<>();
+		for (Employee employee : allEmployees) {
+			if(employee.getSalary()>=r1 && employee.getSalary()<=r2)
+			{
+				tempList.add(employee);
+			}
+		}
+		
+		return tempList;
+	}
+	
+	
+	
+	
+	
 	public Employee getEmployeeById(int searchId)
 	{
+		
+		for (Employee employee : allEmployees) {
+			if(employee.getId() == searchId)
+			{
+				return employee;
+			}
+		}
+		
 		return null;
 	}
 	

@@ -30,7 +30,7 @@ public class EmployeeServer {
 	
 	public Employee getEmployeeById(int searchId)
 	{
-		return null;
+		return db.getEmployeeById(searchId);
 	}
 	
 	public List<Employee> getAllEmployees()
@@ -39,4 +39,40 @@ public class EmployeeServer {
 	}
 
 
+	public List<Employee> getEmployeeByDepartment(String searchDepartment)
+	{
+		/*
+		 * some auth.. 
+		 * DTO convertor
+		 * */
+		return db.getEmployeeByDepartment(searchDepartment);
+		
+	}
+	
+	
+	public List<Employee> getEmployeeBySalaryRange(int r1,int r2)
+	{
+		return db.getEmployeeBySalaryRange(r1, r2);
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
