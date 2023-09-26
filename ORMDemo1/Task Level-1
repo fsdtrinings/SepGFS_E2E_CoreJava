@@ -1,0 +1,4 @@
+ORM – Level -1 Task 
+
+Create class Customer , add couple of properties like customer name , address , gender , age etc 
+And store at least 3 customer objects in Database using Hibernate 
