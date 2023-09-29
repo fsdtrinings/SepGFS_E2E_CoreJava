@@ -11,7 +11,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,6 +26,7 @@ import lombok.NoArgsConstructor;
 
 @Entity  // use to tell hibernate that this class we want to persist/save
 @Table(name = "CGEmployee")
+//@Inheritance(strategy=InheritanceType.SINGLE_TABLE)// SingleTable , TablePerClass , JOINED
 public class Employee {
 
 	@Id
@@ -44,7 +48,11 @@ public class Employee {
 	@JoinColumn(name = "insuranceId")
 	private Insurance insurance;
 	
+	/* Maintaining Bi-Directional Relationship with Project entity*/
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="ProjectId")
+	private Project project;
 	
 	public Employee() {
 		super();
@@ -64,6 +72,13 @@ public class Employee {
 		super();
 		this.fullname = fullname;
 		this.annualSalary = annualSalary;
+	}
+	
+	public Project getProject() {
+		return project;
+	}
+	public void setProject(Project project) {
+		this.project = project;
 	}
 	public long getEmpId() {
 		return empId;

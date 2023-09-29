@@ -13,12 +13,16 @@
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
 		
-		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
   
   
   		<mapping class="edu.training.hrapp.models.Employee"/>
   		<mapping class="edu.training.hrapp.models.Verification"/>
   		<mapping class="edu.training.hrapp.models.Insurance"/>
+  		<mapping class="edu.training.hrapp.models.Project"/>
+  		<mapping class="edu.training.hrapp.models.ContractualEmployee"/>
+  		
+  		
   		
   		
   		
