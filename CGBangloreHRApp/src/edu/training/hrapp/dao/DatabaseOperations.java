@@ -14,7 +14,7 @@ public class DatabaseOperations {
 	}
 	
 	
-	public Employee getEmployeeById(int empId)
+	public Employee getEmployeeById(long empId)
 	{
 		Employee savedEmp = (Employee) hibernateSession.get(Employee.class, empId);
 		return savedEmp;

@@ -17,6 +17,10 @@
   
   
   		<mapping class="edu.training.hrapp.models.Employee"/>
+  		<mapping class="edu.training.hrapp.models.Verification"/>
+  		<mapping class="edu.training.hrapp.models.Insurance"/>
+  		
+  		
   		
   
  

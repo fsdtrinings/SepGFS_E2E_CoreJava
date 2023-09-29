@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import edu.training.hrapp.dao.DatabaseOperations;
 import edu.training.hrapp.models.Employee;
+import edu.training.hrapp.models.Insurance;
+import edu.training.hrapp.models.Verification;
 import edu.training.hrapp.util.DateConvertor;
 
 public class MainClass {
@@ -16,13 +18,13 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		MainClass app = new MainClass();
-		//app.createEmployee();
-		app.getEmployee();
+		app.createEmployee();
+		//app.getEmployee();
 	}
 	
 	public void getEmployee()
 	{
-		int searchId = 1;
+		long searchId = 1;
 		displayEmployee(dbOps.getEmployeeById(searchId));
 	}
 	
@@ -33,13 +35,20 @@ public class MainClass {
 	
 	public  void createEmployee()
 	{
-		String strDob = "12-2-1979";
-		String strDoj = "28-11-2015";
+		String strDob = "12-2-1989";
+		String strDoj = "28-11-2021";
 		
 		LocalDate dob = DateConvertor.getDateFromString(strDob);
 		LocalDate doj = DateConvertor.getDateFromString(strDoj);
-		Employee e = new Employee( "Kavita",60000, "Manager",
+		
+		Employee e = new Employee( "Sunita",70000, "Ex-Manager",
 				"Marketing", dob, doj);
+		
+		Verification kyc = new Verification("12345", "AJQPB6d8934", null, true);
+		e.setKyc(kyc);
+		
+		Insurance ins = new Insurance("Medical Insurance", 500000);
+		e.setInsurance(ins);
 		
 		dbOps.saveEmployee(e);
 	}
