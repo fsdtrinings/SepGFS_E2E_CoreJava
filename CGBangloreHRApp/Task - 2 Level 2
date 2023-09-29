@@ -1,0 +1,10 @@
+What You will learn 
+1) embedded (has-a) mapping 
+2) one to one mapping
+
+
+create a class Project (already discussed)
+
+has -a  Certification 
+
+One to One -> Vendor
