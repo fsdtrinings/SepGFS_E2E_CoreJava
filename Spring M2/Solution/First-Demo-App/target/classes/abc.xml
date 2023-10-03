@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<bean id="x" class="org.cg.firstapp.entity.Employee"/>
+
+
+	<bean id="e1" class="org.cg.firstapp.entity.Employee">
+	 	<property name="empId" value="101"></property>
+		<property name="name" value="ramesh"></property>
+		<property name="annualSalary" value="2000"></property>
+		<property name="designation" value="Developer"></property>
+		
+		
+	 </bean>
+	<bean id="e2" class="org.cg.firstapp.entity.Employee">
+		 <constructor-arg name="empId" value="102"></constructor-arg>
+		 <constructor-arg name="name" value="Anil Kumar"></constructor-arg>
+		 <constructor-arg name="annualSalary" value="2500"></constructor-arg>
+		 <constructor-arg name="designation" value="Testing"></constructor-arg>
+		 <property name="laptop" ref="dell123"/>
+	 </bean>
+	 
+	  <bean id="dell123" class="org.cg.firstapp.entity.Laptop">
+		<property name="laptopNumber" value="CDN1234ABC"/>
+	  </bean>
+	  
+	  
+	
+	  
+	<bean id="e3" class="org.cg.firstapp.entity.Employee">
+		 <constructor-arg name="empId" value="103"></constructor-arg>
+		 <constructor-arg name="name" value="Mike"></constructor-arg>
+		 <constructor-arg name="annualSalary" value="2500"></constructor-arg>
+		 <constructor-arg name="designation" value="Testing"></constructor-arg>
+		 <property name="laptop" ref="dell123"/>
+		 <property name = "allIssuedTask">
+			<list>
+			<ref bean="t1"/>
+			<ref bean="t2"/>
+			<ref bean="t3"/>
+		
+		</list>
+			
+		 </property>
+	 </bean>
+	
+	<bean id="t1" class="org.cg.firstapp.entity.Task">
+		<property name="taskName" value="Testing of Code"/>
+		<property name="endDate" value="2023-10-20"/>
+		<property name="status" value="Open"/>
+	</bean>
+	<bean id="t2" class="org.cg.firstapp.entity.Task">
+		<property name="taskName" value="Team Meeting"/>
+		<property name="endDate" value="2023-10-03"/>
+		<property name="status" value="end"/>
+	</bean>
+	<bean id="t3" class="org.cg.firstapp.entity.Task">
+		<property name="taskName" value="Client Call"/>
+		<property name="endDate" value="2023-10-03"/>
+		<property name="status" value="Pending"/>
+	</bean>
+	
+	
+</beans>	
