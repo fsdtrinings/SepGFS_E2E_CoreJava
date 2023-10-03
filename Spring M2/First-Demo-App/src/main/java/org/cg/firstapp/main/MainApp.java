@@ -4,7 +4,7 @@ import org.cg.firstapp.entity.Employee;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public interface MainApp {
+public class MainApp {
 	public static void main(String[] args) {
 		ApplicationContext spring = new ClassPathXmlApplicationContext("Spring.xml");
 	
