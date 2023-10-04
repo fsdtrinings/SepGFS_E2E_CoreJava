@@ -1,0 +1,22 @@
+Based on Previously created Account class (without any relationship). Create following operations using Spring REST API, created through Spring Boot.
+Use List<Account> as data storage
+1) Add following Properties in the Account class
+    a. int balance
+    b. String branchLocation
+    c. mobilePin
+    d. accountType  (salaried,saving & current account)
+
+2) Perform following Operations 
+  a. save account 
+  b. get account by Id
+  c. get All accounts
+  d. get accounts by branchLocation
+  e. update mobile pin based on account number/id
+
+
+Level-2 Task
+3) based on accountType call withdrawal operation  
+   3.a)  account type Saleried can withdraw all balance upto amount 0 
+   3.b)  account type saving have to maintain balance Rs. 5000
+   3.c)  account type current can withdraw any amount upto -100,000 Rs.
+   
