@@ -8,8 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.hrapp.entity.Employee;
@@ -52,4 +54,60 @@ public class EmployeeRestController {
 		return empService.getEmployeeById(id);
 	}
 	
-}
+	@GetMapping("/employee/location")  /// www.localhost:9211/myhrapp/employees
+	public ResponseEntity<List<Employee>> getEmployees(@RequestParam String loc)
+	{
+		System.out.println("inside controller getEmployeesBy Location()");
+		List<Employee> temp =  empService.getEmployeeByLocation(loc);
+		System.err.println(temp.size());
+		System.out.println(temp);
+		return new ResponseEntity<List<Employee>>(temp, HttpStatus.OK);
+	}
+	
+	@GetMapping("/employee/designation")  /// www.localhost:9211/myhrapp/employees
+	public ResponseEntity<List<Employee>> getEmployeesByDesignation(@RequestParam String des)
+	{
+		System.out.println("inside controller getEmployeesBy Location()");
+		List<Employee> temp =  empService.getEmployeeByDesignation(des);
+		System.err.println(temp.size());
+		System.out.println(temp);
+		return new ResponseEntity<List<Employee>>(temp, HttpStatus.OK);
+	}
+	
+	
+	@PutMapping("/employee")
+	public ResponseEntity<Employee> updateEmployeeSalary(@RequestParam int eid,@RequestParam int sal)
+	{
+		Employee updatedEmployee = empService.updateEmployee(eid, sal);
+		Employee e = new Employee();
+		if(updatedEmployee != null)
+		{
+			return new ResponseEntity<Employee>(updatedEmployee, HttpStatus.OK);
+		}
+		else
+			return new ResponseEntity<Employee>(e, HttpStatus.NOT_FOUND);
+	}
+	
+	
+	
+	
+}//end class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

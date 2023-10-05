@@ -2,6 +2,8 @@ package com.cg.hrapp.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	
 	
 	@Override
+	@Transactional
 	public int saveEmployee(Employee e) {
 		Employee savedEmployee = empRepository.save(e);
 		if(savedEmployee !=null)
@@ -30,7 +33,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
 	@Override
 	public Employee getEmployeeById(int searchId) {
-		 Employee savedEmployee = empRepository.getReferenceById(searchId);
+		 Employee savedEmployee = empRepository.findById(searchId).get();
 		 if(savedEmployee !=null)
 			{
 				return savedEmployee;
@@ -48,4 +51,48 @@ public class EmployeeServiceImpl implements IEmployeeService {
 		else return null;
 	}
 
-}
+	@Override
+	public List<Employee> getEmployeeByDesignation(String designation) {
+		return empRepository.getEmployeeByDesignation(designation);
+	}
+	
+	@Override
+	public List<Employee> getEmployeeByLocation(String location) {
+		return empRepository.getEmployeeByLocation(location);
+	}
+	
+	@Override
+	@Transactional
+	public Employee updateEmployee(int searchId,int newSalary)
+	{
+		Employee savedEmployee = getEmployeeById(searchId);
+		if(savedEmployee!=null)
+		{
+			savedEmployee.setSalary(newSalary);
+			return savedEmployee;
+		}
+		
+		
+		return null;
+	}
+	
+	
+
+}//end impl class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
