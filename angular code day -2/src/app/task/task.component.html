@@ -1,0 +1,20 @@
+<select (change)="filterByCategory(category.value)" #category>
+    <option selected="false">Select Filter</option>
+    <option value="Laptop">Laptop</option>
+    <option value="Camera">Camera</option>
+    <option value="Phone">Phone</option>
+</select>
+<table>
+    <tr *ngFor="let p of allProducts">
+        <td> <input type="checkbox" (change)="calculateSum(p.cost)"/> </td>
+        <td>{{p.productName}}</td>
+        <td>{{p.category}}</td>
+        <td>{{p.cost}}</td>
+        <td>{{p.stockValue}}</td>
+        <td> <button (click)="passToCart(p)"> add to cart</button> </td>
+    </tr>
+</table>
+<hr/>
+<div *ngIf="totalSum!=0">{{totalSum}}</div>
+
+

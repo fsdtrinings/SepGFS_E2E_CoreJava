@@ -1,0 +1,17 @@
+{{data}}
+<div *ngIf="data == 40;then ifblock else elseblock "></div>
+<div></div>
+<ng-template #ifblock>
+    inside if block
+   </ng-template>
+   <ng-template #elseblock>
+    inside if block
+   </ng-template>
+      
+   <hr/>
+
+   <div *ngFor="let x of arr">
+        <div *ngIf="x >=20 && x<=50">
+            {{x}}
+        </div>
+   </div>

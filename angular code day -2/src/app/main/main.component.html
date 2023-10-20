@@ -1,0 +1,25 @@
+
+<button (click)="doToggle()">{{buttonText}}</button>
+<div *ngIf="isVisible">
+
+    Enter Marks of <div [style.color]="passingStatus">{{name}}</div>
+    <input type="text" #marks/>
+    <button 
+      (click)="validateResult(marks.value)">
+      Validate Result</button>
+
+</div>
+
+<br/>
+<app-footer></app-footer>
+<hr/>
+<app-task></app-task>
+
+
+
+
+
+
+
+
+
