@@ -1,0 +1,63 @@
+<div style="display: flex; justify-content: space-evenly">
+  <div>
+    <form (ngSubmit)="doSubmit()">
+      <table>
+        <tr>
+          <TD>Employee Name</TD>
+          <TD
+            ><input type="text" [(ngModel)]="dto.empName" id="en" name="en" />
+          </TD>
+          <td></td>
+        </tr>
+        <tr>
+          <TD>Salary</TD>
+          <TD
+            ><input type="text" [(ngModel)]="dto.salary" id="sal" name="sal"
+          /></TD>
+          <td></td>
+        </tr>
+        <tr>
+          <TD>Designation</TD>
+          <TD>
+            <select [(ngModel)]="dto.designation" id="des" name="des">
+              <option selected="false">Select</option>
+              <option>Developer</option>
+              <option>Support Engineer</option>
+              <option>Test Engineer</option>
+              <option>SAP Consultant</option>
+              <option>Project Manager</option>
+            </select>
+          </TD>
+          <td></td>
+        </tr>
+        <tr>
+          <TD>Location</TD>
+          <TD>
+            <select [(ngModel)]="dto.location" id="loc" name="loc">
+              <option selected="false">Select</option>
+              <option>Banglore</option>
+              <option>Mumbai</option>
+              <option>Gurgoan</option>
+              <option>Pune</option>
+              <option>Hydrabad</option>
+              <option>Chennai</option>
+            </select>
+          </TD>
+          <td></td>
+        </tr>
+        <tr>
+          <TD>Pan Number</TD>
+          <TD
+            ><input type="text" [(ngModel)]="dto.panNumber" id="pn" name="pn"
+          /></TD>
+          <td></td>
+        </tr>
+      </table>
+      <input type="submit" value="Enter Employee" />
+    </form>
+  </div>
+
+  <div>
+    <app-view-employee></app-view-employee>
+  </div>
+</div>

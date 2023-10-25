@@ -1,0 +1,12 @@
+<button (click)="doLoad()">Refresh</button>
+<table *ngFor="let e of allEmployee">
+  <tr>
+    <td>{{ e.empId }}</td>
+    <td>{{ e.employeeName }}</td>
+    <td>{{ e.designation }}</td>
+    <td>{{ e.location }}</td>
+    <td>{{ e.panNumber }}</td>
+    <td>{{ e.projectName }}</td>
+    <td>{{ e.verificationStatus }}</td>
+  </tr>
+</table>
