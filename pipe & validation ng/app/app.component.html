@@ -1,0 +1,43 @@
+<div style="width: 100%;height: 20%;background-color: dimgrey;color: aliceblue;display: flex;justify-content: space-between; ">
+ 
+    <h1> MyHRAppPro V1.0</h1>
+    <div *ngIf="isLogin == false"   style="display: flex;justify-content: space-around;">
+      <table >
+        <tr>
+          <td>Username</td>
+          <td><input type="text" value="a" #un/> </td>
+        </tr>
+        <tr>
+          <td>password</td>
+          <td><input type="text" value="a" #pass/> </td>
+        </tr>
+        <tr>
+          <td><button (click)="doLogin(un.value,pass.value)">Login</button></td>
+          <td> </td>
+        </tr>
+      </table>
+      
+      
+    </div>
+    <div style="color: azure;font-size: large;" *ngIf="isLogin == true">
+      Welcome {{username}}
+    </div>
+    
+ 
+    
+  </div>
+  <hr/>
+  <div *ngIf="role == 'admin'">
+    <a routerLink="addemployee"> Add Employee </a>
+    <a routerLink="#"> View Employee</a>
+    
+  </div>
+  <div *ngIf="role == 'employee'">
+    <a routerLink="#"> View Project</a>
+    <a routerLink="#"> View Insurance</a>
+    <a routerLink="#"> Update Profile</a>
+   </div>
+
+<hr/>
+<router-outlet></router-outlet>
+
