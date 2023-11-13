@@ -1,0 +1,13 @@
+{
+    "empName": "Rohan",
+    "location": "Baramati",
+    "salary": 2000,
+    "designation": "Senior Developer",
+    "empVerification":
+    {
+        "panNumber":"abc123",
+        "status":true
+    }
+}
+
+
