@@ -1,0 +1,11 @@
+
+----------------------------------------------------
+		What to Change in Code
+----------------------------------------------------
+Step 1 	: 	POM.XML  , add dependecy 
+Step 2	:	Add SwaggerConfiguration.java in root directory
+Step 3	:	Add ANT_PATH_MATCHER property in application.properties
+Step 4	:	Add document annotations in @RESTController classes (ie in EmployeeRestController)
+
+Step 5	:	In order to access Swagger UI use following URL
+			http://localhost:2002/swagger-ui/
